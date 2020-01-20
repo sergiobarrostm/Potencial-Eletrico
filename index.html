@@ -1,0 +1,266 @@
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129418052-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-129418052-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+
+  <title>Potencial Elétrico</title>
+
+</head>
+<body>
+
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
+          <div class="container">
+        <a class="navbar-brand" href="#">Potencial Elétrico</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav  ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Calcular</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#calcular-potencial">Potencial Elétrico</a>
+                <a class="dropdown-item" href="#calcular-distancia">Trabalho da Força Elétrica</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#conteudo">Como Calcular?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#devteam">Dev Team</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+
+
+<section class="calcular border-bottom" id="calcular-potencial">
+  <div class="container-fluid">
+
+      <div class="row justify-content-center text-center">
+        <h1>Calcular Potencial Elétrico</h1>
+      </div>
+
+    <form>
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-5">
+          <label>Digite o valor da carga elétrica:</label>
+          <input class="form-control" id="valor-carga" type="number" step="any" placeholder="Ex: 2e-8" required>
+        </div> 
+
+        <div class="col-lg-4 col-md-5">
+          <label>Escolha a unidade de carga:</label>
+          <select id="undcarga" class="form-control">
+            <option value="1">Coloumb (C)</option>
+            <option value="10e-6">microcoulomb (μC) - 10ˉ⁶   C</option>
+            <option value="10e-9">nanocoulomb  (nC) - 10ˉ⁹  C</option>
+            <option value="12">picocoulomb (pC) - 10ˉ¹² C</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-5">
+          <label>Digite o valor da distância:</label>
+          <input class="form-control" id="valor-distancia" type="number" step="any" required>
+        </div>
+        <div class="col-lg-4 col-md-5">
+          <label>Escolha a unidade de distância</label>
+          <select id="und-distancia" class="form-control">
+            <option value="1">metro (m)</option>
+            <option value="100">centímetro (cm)</option>
+            <option value="1000">milímetro (mm)</option>
+          </select>
+        </div>
+      </div> 
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+          <button type="button" class="btn btn-block btn-primary" onclick="calcularPotencial();">Calcular</button> 
+        </div>
+      </div>
+      <div class="row justify-content-center">
+
+        <div class="col-lg-8 col-md-10">
+          <output id="output-potencial" class="form-control text-center">Resultado</output>
+        </div>
+      </div>
+
+  </form> 
+</div>
+</section>
+
+
+<section class="calcular border-bottom" id="calcular-distancia">
+
+  <div class="container-fluid calcular">
+
+      <div class="row justify-content-center text-center">
+        <h1>Calcular Distância</h1>
+      </div>
+    
+    <form> 
+
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-5">
+          <label>Digite o módulo da carga positiva:</label>
+          <input class="form-control" id="valor-q1" type="number" step="any" placeholder="Ex: 2e-8" required>
+        </div> 
+
+        <div class="col-lg-4 col-md-5">
+          <label>Escolha a unidade de carga:</label>
+          <select id="und-q1" class="form-control">
+            <option value="1">Coloumb (C)</option>
+            <option value="10e-6">microcoulomb (μC) - 10ˉ⁶   C</option>
+            <option value="10e-9">nanocoulomb  (nC) - 10ˉ⁹  C</option>
+            <option value="10e-12">picocoulomb (pC) - 10ˉ¹² C</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-5">
+          <label>Digite o módulo da carga negativa:</label>
+          <input class="form-control  " id="valor-q2" type="number" step="any" placeholder="Ex: 2e-8" required>
+        </div>
+
+          <div class="col-lg-4 col-md-5">
+          <label>Escolha a unidade de carga:</label>
+          <select id="und-q2" class="form-control">
+            <option value="1">Coloumb (C)</option>
+            <option value="10e-6">microcoulomb (μC) - 10ˉ⁶   C</option>
+            <option value="10e-9">nanocoulomb  (nC) - 10ˉ⁹  C</option>
+            <option value="10e-12">picocoulomb (pC) - 10ˉ¹² C</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+
+        <div class="col-lg-4 col-md-5">
+          <label>Digite o valor da distância:</label>
+          <input class="form-control" id="valor-distancia2" type="number" step="any" required>
+        </div>
+
+        <div class="col-lg-4 col-md-5">
+          <label>Escolha a unidade de distância</label>
+          <select id="und-distancia2" class="form-control">
+            <option value="1">metro (m)</option>
+            <option value="100">centímetro (cm)</option>
+            <option value="1000">milímetro (mm)</option>
+          </select>
+        </div>
+      </div> 
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <output id="output-distancia" class="form-control text-center">Resultado</output>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <button type="button" class="btn btn-block btn-primary" onclick="calcularDistancia();">Calcular</button> 
+        </div>
+      </div>
+    </form> 
+ 
+</div>
+</section>
+
+<section class="border-bottom " id="conteudo">
+
+  <div class="container-fluid">
+
+      <div class="row justify-content-center text-center">
+        <h1>Saiba Como Calcular</h1>
+      </div>
+      <div class="row justify-content-center text-justify">
+        <div class="col-lg-10 col-md-10">
+          <p>É a capacidade que um corpo energizado tem de realizar trabalho, ou seja, atrair ou repelir outras cargas elétricas. O potencial elétrico existe independentemente do valor da carga Q colocada num ponto desse campo.</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center text-justify">
+        <div class="col-lg-5 col-md-10">
+          <p> <strong>O potencial elétrico pode ser determinado pela seguinte equação:</strong> </p>
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-6 formula">
+              `V = (K_0 * Q)/d` 
+            </div>
+            <div class="col-lg-6 col-12">
+              <ul>
+                <li>`K_0 =  9 * 10^9 Nm^2//C^2`</li>
+                <li>Q - Carga</li>
+                <li>d - Distância</li>
+              </ul>
+            </div>
+          </div>
+          <p>Quando uma carga de prova q é colocada no ponto P de um campo elétrico, ela irá adquirir uma energia associada à quantidade de trabalho que pode realizar para entrar em movimento. No caso da equação acima descrita, V é o potencial elétrico associado a uma determinada carga.          </p>
+          <p><strong>A unidade adotada para medir o potencial elétrico é o volt (V).</strong></p>
+        </div>
+
+        <div class="col-lg-5 col-md-10">
+          <p><strong>Assista à aula ministrada pelo prof. Elder:</strong>  </p>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="640"   height="480" src="https://www.youtube.com/embed/WoOV8qP9p08" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>    
+
+<footer class="footer" id="devteam">
+  <div class="container-fluid">
+    <div class="row footer-elements text-center justify-content-center">
+      <div class="col-lg-12">
+        <h3>Dev Team</h3>
+      </div>  
+      <div class="col-lg-3 col-md-4">
+        <img src="img/img-sergio.jpg" class="rounded-circle img-fluid" alt="Cinque Terre"> 
+        <h4>Sérgio Barros</h4>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <img src="img/img-beatriz.jpg" class="rounded-circle img-fluid" alt="Cinque Terre">
+        <h4>Beatriz Ferreira</h4>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <img src="img/img-joao.jpg" class="rounded-circle img-fluid" alt="Cinque Terre">
+        <h4>João Victor Vaz</h4>
+      </div>
+    </div>
+    <div class="row div-footer text-center justify-content-center">
+      <span>Copyright © 2018</span>
+    </div>
+  </div>
+</footer> 
+
+<script src="js/script.js" ></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

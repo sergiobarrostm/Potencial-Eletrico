@@ -1,0 +1,70 @@
+.title  , .footer-elements{
+    background-color: #518fe1;
+    color: white;
+}
+
+.rounded-circle {
+    width: 200px;
+    height: 200px
+}
+
+
+section{
+    width: 100%;
+}
+
+.formula{
+    font-size: 25px;
+}
+form .row {
+    margin-bottom: 35px; 
+}
+
+#calcular-potencial{
+    padding-top: 100px;
+    padding-bottom: 50px
+}
+
+#calcular-distancia , #conteudo{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#calcular-distancia {
+
+background-color: #f2f5fa; 
+}
+
+section{
+    height: 100%;
+}
+
+h1{
+    font-family: 'Catamaran', sans-serif;
+    padding-bottom: 70px; 
+}
+
+ .footer h3 {
+font-family: 'Yantramanav', sans-serif;
+    font-size: 25px;
+    font-weight: normal;
+    padding: 10px 0 10px;  
+}
+
+
+
+h4{
+    font-size: 16px;
+    padding-top: 15px; 
+    font-weight: normal;
+
+}
+
+.div-footer{
+    background: #061F40;
+    color: white;
+}
+
+.footer-elements{
+    padding: 30px 0 30px;
+}
+
